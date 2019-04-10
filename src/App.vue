@@ -10,7 +10,7 @@
         v-on:dblclick="deleteItem(task)"
         class="item"
       >
-        <h1 v-bind:class="{item__complete: task.isComplete}">{{task.name}}</h1>
+        <h1 v-bind:class="{item__gradient: true, item__complete: task.isComplete}">{{task.name}}</h1>
       </li>
     </ul>
   </div>
@@ -53,8 +53,14 @@ export default {
 </script>
 
 <style>
+body {
+  margin: 0;
+}
+
 #app {
   display:flex;
+  height: 100vh;
+  /* background-image: linear-gradient(120deg, #a6c0fe 0%, #f68084 100%); */
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -64,7 +70,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   /* text-align: center; */
   color: #2c3e50;
-  margin-top: 60px;
 }
 ul {
   justify-content: center;
@@ -73,16 +78,25 @@ ul {
   word-wrap: break-word;
   hyphens: auto;
 }
+.item {
+  cursor: pointer;
+}
+
+.item__gradient {
+  background: -webkit-linear-gradient(120deg, #a6c0fe 0%, #f68084 100%); 
+  text-decoration: none;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 .item__complete { 
   color: grey;
   text-decoration: line-through;
+  -webkit-background-clip: inherit;
+  -webkit-text-fill-color: inherit;
 }
 .taskInput {
   width: 200px;
   height: 40px;
   border: solid 1px black;
-}
-.item {
-  cursor: pointer;
 }
 </style>
