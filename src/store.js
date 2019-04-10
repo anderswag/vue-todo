@@ -1,13 +1,18 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import VuexPersist from 'vuex-persist'
+
+const vuexPersist = new VuexPersist({
+  key: 'my-todo-app',
+  storage: localStorage
+})
 
 Vue.use(Vuex);
 
-const getRandomNumber = () => {
-  return Math.floor(Math.random() * 10000)
-}
+const getRandomNumber = () => Math.floor(Math.random() * 10000)
 
 export default new Vuex.Store({
+  plugins: [vuexPersist.plugin],
   state: {
     items: [],
   },
