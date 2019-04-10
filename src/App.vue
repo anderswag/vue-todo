@@ -2,7 +2,6 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
     <input class="taskInput" type="text" autofocus=true v-on:keyup.enter="addItem"  v-model="task" placeholder="lets rock and roll"/>
-    <button v-on:click="addItem">Add</button>
     <ul>
       <li
         v-bind:key="task.id"
