@@ -84,14 +84,14 @@ ul {
 
 .item__gradient {
   background: -webkit-linear-gradient(120deg, #a6c0fe 0%, #f68084 100%); 
-  text-decoration: none;
+  /* text-decoration: initial; */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .item__complete { 
   color: grey;
   text-decoration: line-through;
-  -webkit-background-clip: inherit;
+  -webkit-background-clip: text;
   -webkit-text-fill-color: inherit;
 }
 .taskInput {
