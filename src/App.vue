@@ -69,7 +69,10 @@ export default {
 }
 ul {
   justify-content: center;
-  list-style-type: none
+  list-style-type: none;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
 }
 .item__complete { 
   color: grey;
