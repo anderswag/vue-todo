@@ -4,7 +4,8 @@
     <input type="text" autofocus=true v-on:keyup.enter="addItem"  v-model="task" placeholder="lets rock and roll"/>
     <button v-on:click="addItem">Add</button>
     <ul>
-      <li 
+      <li
+        v-bind:key="task.id"
         v-for="task in allTasks" 
         v-on:click="checkItem(task)" 
         v-on:dblclick="deleteItem(task)"
