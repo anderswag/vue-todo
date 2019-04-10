@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
-    <input type="text" autofocus=true v-on:keyup.enter="addItem"  v-model="task" placeholder="lets rock and roll"/>
+    <input class="taskInput" type="text" autofocus=true v-on:keyup.enter="addItem"  v-model="task" placeholder="lets rock and roll"/>
     <button v-on:click="addItem">Add</button>
     <ul>
       <li
@@ -9,8 +9,9 @@
         v-for="task in allTasks" 
         v-on:click="checkItem(task)" 
         v-on:dblclick="deleteItem(task)"
+        class="item"
       >
-        <h1 v-bind:class="{complete: task.isComplete}">{{task.name}}</h1>
+        <h1 v-bind:class="{item__complete: task.isComplete}">{{task.name}}</h1>
       </li>
     </ul>
   </div>
@@ -54,18 +55,32 @@ export default {
 
 <style>
 #app {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  /* text-align: center; */
   color: #2c3e50;
   margin-top: 60px;
 }
 ul {
+  justify-content: center;
   list-style-type: none
 }
-.complete { 
+.item__complete { 
   color: grey;
   text-decoration: line-through;
+}
+.taskInput {
+  width: 200px;
+  height: 40px;
+  border: solid 1px black;
+}
+.item {
+  cursor: pointer;
 }
 </style>
